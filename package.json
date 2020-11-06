@@ -3,7 +3,7 @@
   "title": "React Native Utils Scale",
   "version": "1.0.0",
   "description": "TODO",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hoaphantn7604/react-native-utils-scale.git",
