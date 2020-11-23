@@ -66,10 +66,10 @@ export const dimensionsScale = {
     return ratioW;
   },
   componentHight: () => {
-    const { height } = Dimensions.get('window');
-    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 1);
+    const { height } = Dimensions.get(isTablet() && Platform.OS === 'ios' ? 'screen' : 'window');
+    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 0.9);
     const ratioH = height / DESIGN_HEIGHT;
-    return isTablet() ? 38 * ratioH : 40 * ratioH;
+    return 40 * ratioH;
   },
   deviceWidth: () => {
     const { width } = Dimensions.get('window');
