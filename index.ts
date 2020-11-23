@@ -55,19 +55,19 @@ export const dimensionsScale = {
   },
   scaleH: () => {
     const { height } = Dimensions.get('window');
-    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 0.8);
+    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 1);
     const ratioH = height / DESIGN_HEIGHT;
     return ratioH;
   },
   scaleW: () => {
     const { width } = Dimensions.get('window');
-    const DESIGN_WIDTH = width / (isTablet() ? 1.3 : 0.8);
+    const DESIGN_WIDTH = width / (isTablet() ? 1.3 : 1);
     const ratioW = width / DESIGN_WIDTH;
     return ratioW;
   },
   componentHight: () => {
     const { height } = Dimensions.get('window');
-    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 0.8);
+    const DESIGN_HEIGHT = height / (isTablet() ? 1.3 : 1);
     const ratioH = height / DESIGN_HEIGHT;
     return isTablet() ? 38 * ratioH : 40 * ratioH;
   },
