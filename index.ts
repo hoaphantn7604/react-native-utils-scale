@@ -16,7 +16,7 @@ export const isAndroid = () => {
 export const dimensionsScale = {
   scale: () => {
     const { width, height } = Dimensions.get('window');
-    const DESIGN_WIDTH = width / (isTablet() ? 1.2 : 0.8);
+    const DESIGN_WIDTH = width / (isTablet() ? 1.2 : 0.9);
     const DESIGN_HEIGHT = height / 1.1;
     const ratioW = width / DESIGN_WIDTH;
     const ratioH = height / DESIGN_HEIGHT;
