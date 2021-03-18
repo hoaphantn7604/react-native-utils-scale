@@ -9,6 +9,10 @@ export function isIphoneX() {
   return DeviceInfo.hasNotch();
 }
 
+export const isAndroid = () => {
+  return Platform.OS === 'android';
+};
+
 export const dimensionsScale = {
   scale: () => {
     const { width, height } = Dimensions.get('window');
