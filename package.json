@@ -1,7 +1,7 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "TODO",
   "main": "index.ts",
   "files": [
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-utils-scale.git",
-    "baseUrl": "https://github.com/github_account/react-native-utils-scale"
+    "url": "git+https://github.com/hoaphantn7604/react-native-utils-scale.git",
+    "baseUrl": "https://github.com/hoaphantn7604/react-native-utils-scale"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Hoa Phan",
+    "email": "hoaphantn7604@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",

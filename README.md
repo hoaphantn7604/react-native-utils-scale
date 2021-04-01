@@ -82,7 +82,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
-// TODO: What to do with the module?
-UtilsScale;
 ```
