@@ -1,16 +1,4 @@
-# react-native-utils-scale
-
-## Getting started
-
-`$ yarn add react-native-utils-scale`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-utils-scale`
-
-## Usage
-```javascript
-
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
@@ -24,7 +12,9 @@ import {
 const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;
 
 const App = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    scale();
+  }, []);
 
   return (
     <ScrollView>
@@ -82,7 +72,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
-// TODO: What to do with the module?
-UtilsScale;
-```

@@ -4,17 +4,27 @@
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.ts",
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "react-native-utils-scale.podspec"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoaphantn7604/react-native-utils-scale.git",
-    "baseUrl": "https://github.com/hoaphantn7604/react-native-utils-scale"
+    "url": "git+https://github.com/github_account/react-native-utils-scale.git",
+    "baseUrl": "https://github.com/github_account/react-native-utils-scale"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Hoa Phan",
-    "email": "hoaphantn7604@gmail.com"
+    "name": "Your Name",
+    "email": "yourname@email.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
@@ -24,12 +34,7 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
-    "react": "^16.13.1",
-    "react-native": "^0.63.3"
-  },
-  "dependencies": {
-    "react-native-device-info": "^7.0.2",
-    "rn-fetch-blob": "^0.12.0",
-    "rxjs": "^6.6.3"
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
   }
 }
