@@ -4,9 +4,9 @@
 
 `$ yarn add react-native-utils-scale`
 
-### Mostly automatic installation
+### IOS Setup
 
-`$ react-native link react-native-utils-scale`
+`$ cd ios && pod install && cd ../`
 
 ## Usage
 ```javascript
