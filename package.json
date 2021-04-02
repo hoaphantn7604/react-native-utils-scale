@@ -1,16 +1,9 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TODO",
   "main": "index.ts",
-  "files": [
-    "README.md",
-    "android",
-    "index.js",
-    "ios",
-    "react-native-utils-scale.podspec"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
