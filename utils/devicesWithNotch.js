@@ -198,4 +198,7 @@ export const devicesWithNotch = [{
 }, {
   brand: 'Samsung',
   model: 'SM-A217F'
+}, {
+  brand: 'Google',
+  model: 'sdk_gphone_x86_arm'
 }];
