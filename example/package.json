@@ -13,7 +13,6 @@
   "dependencies": {
     "react": "17.0.1",
     "react-native": "0.64.0",
-    "react-native-device-info": "^8.0.8",
     "react-native-utils-scale": "file:../"
   },
   "devDependencies": {

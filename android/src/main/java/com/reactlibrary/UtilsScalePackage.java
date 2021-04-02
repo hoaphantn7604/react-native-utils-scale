@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.utils.scale;
 
 import java.util.Arrays;
 import java.util.Collections;

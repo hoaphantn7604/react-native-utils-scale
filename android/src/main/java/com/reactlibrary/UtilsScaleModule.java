@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.utils.scale;
 
 import android.os.Build;
 import android.util.DisplayMetrics;
