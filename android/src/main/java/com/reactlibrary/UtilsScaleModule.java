@@ -1,18 +1,15 @@
 package com.reactlibrary;
 
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import java.util.HashMap;
 import java.util.Map;
+import android.view.WindowManager;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.Promise;
 
 public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
@@ -45,11 +42,37 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
     public boolean isTablet() {
         // TODO: Implement some actually useful functionality
-        TelephonyManager manager = (TelephonyManager)reactContext.getSystemService(reactContext.TELEPHONY_SERVICE);
-        if(manager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE){
+        if(getDeviceType() == "Tablet"){
             return true;
-        }else{
+        }else {
             return false;
+        }
+    }
+
+    private String getDeviceType() {
+        // Find the current window manager, if none is found we can't measure the device physical size.
+        WindowManager windowManager = (WindowManager) reactContext.getSystemService(reactContext.WINDOW_SERVICE);
+
+        if (windowManager == null) {
+            return "unknown";
+        }
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            windowManager.getDefaultDisplay().getRealMetrics(metrics);
+        } else {
+            windowManager.getDefaultDisplay().getMetrics(metrics);
+        }
+
+        float yInches= metrics.heightPixels/metrics.ydpi;
+        float xInches= metrics.widthPixels/metrics.xdpi;
+        double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
+
+        if (diagonalInches>=6.5){
+            return "Tablet";
+        }else{
+            // smaller device
+            return "Phone";
         }
     }
 
