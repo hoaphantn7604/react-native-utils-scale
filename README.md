@@ -8,6 +8,10 @@
 
 `$ cd ios && pod install && cd ../`
 
+### Demo
+
+![Alt text](./document/demo.png?raw=true "Demo")
+
 ## Usage
 ```javascript
 
@@ -19,6 +23,7 @@ import {
   isIOS,
   hasNotch,
   isTablet,
+  isSmallDevice
 } from 'react-native-utils-scale';
 
 const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;

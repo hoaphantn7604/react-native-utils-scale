@@ -7,14 +7,13 @@ import {
   isIOS,
   hasNotch,
   isTablet,
+  isSmallDevice,
 } from 'react-native-utils-scale';
 
 const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;
 
 const App = () => {
-  useEffect(() => {
-    scale();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <ScrollView>
@@ -40,6 +39,9 @@ const App = () => {
         <Text style={styles.fontScale}>isIOS: {isIOS().toString()}</Text>
         <Text style={styles.fontScale}>hasNotch: {hasNotch().toString()}</Text>
         <Text style={styles.fontScale}>isTablet: {isTablet().toString()}</Text>
+        <Text style={styles.fontScale}>
+          isSmallDevice: {isSmallDevice().toString()}
+        </Text>
       </SafeAreaView>
     </ScrollView>
   );

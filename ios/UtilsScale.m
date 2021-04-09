@@ -8,6 +8,7 @@ RCT_EXPORT_MODULE()
 {
     return @{ 
         @"checkTablet": @([self isTablet]),
+        @"checkSmallDevice": @([self isSmallDevice]),
         @"checkhasNotch": @([self hasNotch]),
     };
 }
@@ -28,6 +29,26 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
         return NO;
     }
     
+}
+
+- (BOOL) isSmallDevice
+{
+    float scale = [[UIScreen mainScreen] scale];
+
+    float ppi = scale * ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 132 : 163);
+
+    float width = ([[UIScreen mainScreen] bounds].size.width * scale);
+    float height = ([[UIScreen mainScreen] bounds].size.height * scale);
+
+    float horizontal = width / ppi, vertical = height / ppi;
+
+    float diagonal = sqrt(pow(horizontal, 2) + pow(vertical, 2));
+
+    if(diagonal < 5.5){
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 - (BOOL) hasNotch

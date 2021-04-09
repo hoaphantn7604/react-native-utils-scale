@@ -1,10 +1,10 @@
 package com.utils.scale;
 
+import android.content.res.Configuration;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import java.util.HashMap;
 import java.util.Map;
-import android.view.WindowManager;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -29,8 +29,10 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
     public Map<String, Object> getConstants() {
         final Map<String, Object> constants = new HashMap<>();
         constants.put("checkTablet", isTablet());
+        constants.put("checkSmallDevice", isSmallDevice());
         constants.put("getModel", getModel());
         constants.put("getBrand", getBrand());
+
         return constants;
     }
 
@@ -42,37 +44,57 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
     public boolean isTablet() {
         // TODO: Implement some actually useful functionality
-        if(getDeviceType() == "Tablet"){
+        if(getDeviceType() == "Large"){
             return true;
         }else {
             return false;
         }
     }
 
+    public boolean isSmallDevice() {
+        // TODO: Implement some actually useful functionality
+        if(getDeviceType() == "Small"){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private String getDeviceTypeFromResourceConfiguration() {
+        int smallestScreenWidthDp = reactContext.getResources().getConfiguration().smallestScreenWidthDp;
+
+        if (smallestScreenWidthDp == Configuration.SMALLEST_SCREEN_WIDTH_DP_UNDEFINED) {
+            return "UNKNOWN";
+        }
+        if(smallestScreenWidthDp >= 600){
+            return "Large";
+        }else{
+            return "Normal";
+        }
+
+    }
+    
     private String getDeviceType() {
-        // Find the current window manager, if none is found we can't measure the device physical size.
-        WindowManager windowManager = (WindowManager) reactContext.getSystemService(reactContext.WINDOW_SERVICE);
+        String deviceTypeFromConfig = getDeviceTypeFromResourceConfiguration();
 
-        if (windowManager == null) {
-            return "unknown";
+        if(deviceTypeFromConfig != null && deviceTypeFromConfig != "UNKNOWN") {
+            return deviceTypeFromConfig;
         }
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            windowManager.getDefaultDisplay().getRealMetrics(metrics);
-        } else {
-            windowManager.getDefaultDisplay().getMetrics(metrics);
-        }
+        DisplayMetrics metrics =  reactContext.getResources().getDisplayMetrics();
 
-        float yInches= metrics.heightPixels/metrics.ydpi;
-        float xInches= metrics.widthPixels/metrics.xdpi;
+        float yInches= metrics.heightPixels/(metrics.ydpi * 100);
+        float xInches= metrics.widthPixels/(metrics.xdpi * 100);
         double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
 
-        if (diagonalInches>=6.5){
-            return "Tablet";
+        if (diagonalInches >= 6.5){
+            return "Large";
         }else{
-            // smaller device
-            return "Phone";
+            if (diagonalInches < 6.5 && diagonalInches >= 5.5){
+                return "Normal";
+            }else{
+                return "Small";
+            }
         }
     }
 

@@ -2,11 +2,16 @@ import { NativeModules, Dimensions, Platform } from 'react-native';
 import { devicesWithNotch } from './devicesWithNotch'
 
 const { UtilsScale } = NativeModules;
-const { checkTablet, checkhasNotch, getModel, getBrand } = UtilsScale.getConstants();
+const { checkTablet, checkSmallDevice, checkhasNotch, getModel, getBrand } = UtilsScale.getConstants();
 
 const isTablet = () => {
     return checkTablet;
 };
+
+const isSmallDevice = () => {
+    return checkSmallDevice;
+};
+
 
 const isIphoneX = () => {
     if (Platform.OS === 'ios') {
@@ -40,8 +45,8 @@ const isIOS = () => {
 const dimensionsScale = {
     fontScale:()=> {
         const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.2 : isAndroid() ? 0.9 : 0.8);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : isAndroid() ? 0.9 : 0.8);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.2 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : checkSmallDevice ? 0.8 : 1);
         const ratioW = width / DESIGN_WIDTH;
         const ratioH = height / DESIGN_HEIGHT;
         const value = Math.min(ratioW, ratioH);
@@ -50,8 +55,8 @@ const dimensionsScale = {
     },
     scale: () => {
         const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : isAndroid() ? 0.9 : 0.8);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : isAndroid() ? 0.9 : 0.8);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
         const ratioW = width / DESIGN_WIDTH;
         const ratioH = height / DESIGN_HEIGHT;
         const value = Math.min(ratioW, ratioH);
@@ -60,13 +65,13 @@ const dimensionsScale = {
     },
     scaleH: () => {
         const { height } = Dimensions.get('screen');
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : isAndroid() ? 0.9 : 0.8);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
         const ratioH = height / DESIGN_HEIGHT;
         return ratioH;
     },
     scaleW: () => {
         const { width } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : isAndroid() ? 0.9 : 0.8);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
         const ratioW = width / DESIGN_WIDTH;
         return ratioW;
     },
@@ -80,4 +85,4 @@ const dimensionsScale = {
     },
 };
 
-export { dimensionsScale, isAndroid, isIOS, isTablet, isIphoneX, hasNotch}
+export { dimensionsScale, isAndroid, isIOS, isTablet, isSmallDevice, isIphoneX, hasNotch}
