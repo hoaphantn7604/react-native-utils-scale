@@ -2,7 +2,6 @@ package com.utils.scale;
 
 import android.content.res.Configuration;
 import android.os.Build;
-import android.util.DisplayMetrics;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,58 +43,22 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
     public boolean isTablet() {
         // TODO: Implement some actually useful functionality
-        if(getDeviceType() == "Large"){
+        if ((reactContext.getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) ==
+                Configuration.SCREENLAYOUT_SIZE_LARGE) {
             return true;
-        }else {
-            return false;
         }
+        return false;
     }
 
     public boolean isSmallDevice() {
         // TODO: Implement some actually useful functionality
-        if(getDeviceType() == "Small"){
+        if ((reactContext.getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) ==
+                Configuration.SCREENLAYOUT_SIZE_SMALL) {
             return true;
-        }else {
-            return false;
         }
-    }
-
-    private String getDeviceTypeFromResourceConfiguration() {
-        int smallestScreenWidthDp = reactContext.getResources().getConfiguration().smallestScreenWidthDp;
-
-        if (smallestScreenWidthDp == Configuration.SMALLEST_SCREEN_WIDTH_DP_UNDEFINED) {
-            return "UNKNOWN";
-        }
-        if(smallestScreenWidthDp >= 600){
-            return "Large";
-        }else{
-            return "Normal";
-        }
-
-    }
-    
-    private String getDeviceType() {
-        String deviceTypeFromConfig = getDeviceTypeFromResourceConfiguration();
-
-        if(deviceTypeFromConfig != null && deviceTypeFromConfig != "UNKNOWN") {
-            return deviceTypeFromConfig;
-        }
-
-        DisplayMetrics metrics =  reactContext.getResources().getDisplayMetrics();
-
-        float yInches= metrics.heightPixels/(metrics.ydpi * 100);
-        float xInches= metrics.widthPixels/(metrics.xdpi * 100);
-        double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
-
-        if (diagonalInches >= 6.5){
-            return "Large";
-        }else{
-            if (diagonalInches < 6.5 && diagonalInches >= 5.5){
-                return "Normal";
-            }else{
-                return "Small";
-            }
-        }
+        return false;
     }
 
     public String getModel() {
