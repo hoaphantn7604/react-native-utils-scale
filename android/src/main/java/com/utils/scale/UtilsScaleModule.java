@@ -2,6 +2,8 @@ package com.utils.scale;
 
 import android.content.res.Configuration;
 import android.os.Build;
+import android.util.DisplayMetrics;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,9 +55,14 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
     public boolean isSmallDevice() {
         // TODO: Implement some actually useful functionality
-        if ((reactContext.getResources().getConfiguration().screenLayout &
-                Configuration.SCREENLAYOUT_SIZE_MASK) ==
-                Configuration.SCREENLAYOUT_SIZE_SMALL) {
+        DisplayMetrics dm = reactContext.getResources().getDisplayMetrics();
+
+        double density = dm.density * 155;
+        double x = Math.pow(dm.widthPixels / density, 2);
+        double y = Math.pow(dm.heightPixels / density, 2);
+        double screenInches = Math.sqrt(x + y);
+
+        if (screenInches < 5.5) {
             return true;
         }
         return false;
