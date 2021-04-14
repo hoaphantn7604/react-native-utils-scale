@@ -45,8 +45,8 @@ const isIOS = () => {
 const dimensionsScale = {
     fontScale:()=> {
         const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.2 : checkSmallDevice ? 0.8 : 1);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
         const ratioW = width / DESIGN_WIDTH;
         const ratioH = height / DESIGN_HEIGHT;
         const value = Math.min(ratioW, ratioH);
@@ -55,8 +55,8 @@ const dimensionsScale = {
     },
     scale: () => {
         const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
         const ratioW = width / DESIGN_WIDTH;
         const ratioH = height / DESIGN_HEIGHT;
         const value = Math.min(ratioW, ratioH);
@@ -65,13 +65,13 @@ const dimensionsScale = {
     },
     scaleH: () => {
         const { height } = Dimensions.get('screen');
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
         const ratioH = height / DESIGN_HEIGHT;
         return ratioH;
     },
     scaleW: () => {
         const { width } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.8 : 1);
+        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
         const ratioW = width / DESIGN_WIDTH;
         return ratioW;
     },
