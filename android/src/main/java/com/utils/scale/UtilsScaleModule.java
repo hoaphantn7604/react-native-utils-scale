@@ -3,6 +3,7 @@ package com.utils.scale;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,12 +69,28 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
         // TODO: Implement some actually useful functionality
         DisplayMetrics dm = reactContext.getResources().getDisplayMetrics();
 
-        double density = dm.density * 155;
-        double x = Math.pow(dm.widthPixels / density, 2);
-        double y = Math.pow(dm.heightPixels / density, 2);
-        double screenInches = Math.sqrt(x + y);
+        WindowManager windowManager = (WindowManager) reactContext.getSystemService(reactContext.WINDOW_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            windowManager.getDefaultDisplay().getRealMetrics(dm);
+        } else {
+            windowManager.getDefaultDisplay().getMetrics(dm);
+        }
 
-        return screenInches;
+        double x = Math.pow(dm.widthPixels / dm.xdpi, 2);
+        double y = Math.pow(dm.heightPixels / dm.xdpi, 2);
+        double screenInches = Math.sqrt(x + y);
+       
+        if(screenInches < 30){
+            return screenInches;
+        }else {
+            double density = dm.density * 160;
+            double x2 = Math.pow(dm.widthPixels / density, 2);
+            double y2 = Math.pow(dm.heightPixels / density, 2);
+            double screenInches2 = Math.sqrt(x2 + y2);
+
+            return screenInches2;
+        }
+
     }
 
     public String getModel() {
