@@ -1,2 +1,2 @@
-import {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice} from './utils/functions';
-export {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice};
+import {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice, getDeviceInch} from './utils/functions';
+export {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice, getDeviceInch};

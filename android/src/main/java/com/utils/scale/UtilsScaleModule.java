@@ -31,6 +31,7 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
         final Map<String, Object> constants = new HashMap<>();
         constants.put("checkTablet", isTablet());
         constants.put("checkSmallDevice", isSmallDevice());
+        constants.put("deviceInch", deviceInch());
         constants.put("getModel", getModel());
         constants.put("getBrand", getBrand());
 
@@ -55,6 +56,16 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
 
     public boolean isSmallDevice() {
         // TODO: Implement some actually useful functionality
+        double screenInches = deviceInch();
+
+        if (screenInches < 4.8) {
+            return true;
+        }
+        return false;
+    }
+
+    public double deviceInch() {
+        // TODO: Implement some actually useful functionality
         DisplayMetrics dm = reactContext.getResources().getDisplayMetrics();
 
         double density = dm.density * 155;
@@ -62,10 +73,7 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
         double y = Math.pow(dm.heightPixels / density, 2);
         double screenInches = Math.sqrt(x + y);
 
-        if (screenInches < 4.8) {
-            return true;
-        }
-        return false;
+        return screenInches;
     }
 
     public String getModel() {

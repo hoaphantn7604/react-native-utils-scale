@@ -2,11 +2,15 @@ import { NativeModules, Dimensions, Platform } from 'react-native';
 import { devicesWithNotch } from './devicesWithNotch'
 
 const { UtilsScale } = NativeModules;
-const { checkTablet, checkSmallDevice, checkhasNotch, getModel, getBrand } = UtilsScale.getConstants();
+const { checkTablet, checkSmallDevice, checkhasNotch, getModel, getBrand, deviceInch } = UtilsScale.getConstants();
 
 const isTablet = () => {
     return checkTablet;
 };
+
+const getDeviceInch = () => {
+    return deviceInch;
+}
 
 const isSmallDevice = () => {
     return checkSmallDevice;
@@ -15,9 +19,9 @@ const isSmallDevice = () => {
 
 const isIphoneX = () => {
     if (Platform.OS === 'ios') {
-        if(checkTablet){
+        if (checkTablet) {
             return false;
-        }else {
+        } else {
             return checkhasNotch;
         }
     } else {
@@ -43,7 +47,7 @@ const isIOS = () => {
 
 
 const dimensionsScale = {
-    fontScale:()=> {
+    fontScale: () => {
         const { width, height } = Dimensions.get('screen');
         const DESIGN_WIDTH = width / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
         const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
@@ -85,4 +89,4 @@ const dimensionsScale = {
     },
 };
 
-export { dimensionsScale, isAndroid, isIOS, isTablet, isSmallDevice, isIphoneX, hasNotch}
+export { dimensionsScale, isAndroid, isIOS, isTablet, isSmallDevice, isIphoneX, hasNotch, getDeviceInch }

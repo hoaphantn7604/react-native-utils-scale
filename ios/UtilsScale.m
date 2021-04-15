@@ -9,6 +9,7 @@ RCT_EXPORT_MODULE()
     return @{ 
         @"checkTablet": @([self isTablet]),
         @"checkSmallDevice": @([self isSmallDevice]),
+        @"deviceInch": @([self deviceInch]),
         @"checkhasNotch": @([self hasNotch]),
     };
 }
@@ -38,6 +39,17 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 - (BOOL) isSmallDevice
 {
+    float diagonal = [self deviceInch];
+
+    if(diagonal < 4.8){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (float) deviceInch
+{
     float scale = [[UIScreen mainScreen] scale];
 
     float ppi = scale * ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 132 : 163);
@@ -49,11 +61,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
     float diagonal = sqrt(pow(horizontal, 2) + pow(vertical, 2));
 
-    if(diagonal < 4.8){
-        return YES;
-    }else{
-        return NO;
-    }
+    return diagonal;
 }
 
 - (BOOL) hasNotch
