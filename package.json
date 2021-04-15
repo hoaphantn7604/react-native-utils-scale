@@ -1,7 +1,7 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "TODO",
   "main": "index.ts",
   "scripts": {

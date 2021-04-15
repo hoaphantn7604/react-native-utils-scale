@@ -62,7 +62,7 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
         double y = Math.pow(dm.heightPixels / density, 2);
         double screenInches = Math.sqrt(x + y);
 
-        if (screenInches < 5.5) {
+        if (screenInches < 4.8) {
             return true;
         }
         return false;

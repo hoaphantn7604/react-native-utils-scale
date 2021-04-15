@@ -49,7 +49,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
     float diagonal = sqrt(pow(horizontal, 2) + pow(vertical, 2));
 
-    if(diagonal < 5.5){
+    if(diagonal < 4.8){
         return YES;
     }else{
         return NO;
