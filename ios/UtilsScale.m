@@ -51,17 +51,46 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 - (float) deviceInch
 {
     float scale = [[UIScreen mainScreen] scale];
+    
+    NSInteger width = [[UIScreen mainScreen] bounds].size.width;
+    NSInteger height = [[UIScreen mainScreen] bounds].size.height;
 
-    float ppi = scale * ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 132 : 163);
+    NSInteger screenHeight = MAX(width, height);
 
-    float width = ([[UIScreen mainScreen] bounds].size.width * scale);
-    float height = ([[UIScreen mainScreen] bounds].size.height * scale);
-
-    float horizontal = width / ppi, vertical = height / ppi;
-
-    float diagonal = sqrt(pow(horizontal, 2) + pow(vertical, 2));
-
-    return diagonal;
+    switch (screenHeight) {
+        case 240:
+            return 3.5;
+        case 480:
+            return 3.5;
+        case 568:
+            return 4;
+        case 667:
+            return scale == 3.0 ? 5.5 : 4.7;
+        case 736:
+            return 5.5;
+        case 812:
+            return 5.4;
+        case 844:
+            return 6.1;
+        case 896:
+            return 6.5;
+        case 926:
+            return 6.7;
+        case 1024:
+            return 9.7;
+        case 1080:
+            return 10.2;
+        case 1112:
+            return 10.5;
+        case 1180:
+            return 10.9;
+        case 1194:
+            return 11;
+        case 1366:
+            return 12.9;
+        default:
+            return 0;
+    }
 }
 
 - (BOOL) hasNotch

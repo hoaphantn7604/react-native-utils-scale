@@ -9,7 +9,7 @@ const isTablet = () => {
 };
 
 const getDeviceInch = () => {
-    return deviceInch;
+    return deviceInch.toFixed(2);
 }
 
 const isSmallDevice = () => {
