@@ -49,31 +49,31 @@ const isIOS = () => {
 const dimensionsScale = {
     fontScale: (number: number = 1) => {
         const value = (deviceInch + (checkSmallDevice ? 2 : 3)) / 10;
-        const scale = number * value.toFixed(1);
+        const scale = number * Number(value.toFixed(1));
         return scale;
     },
     scale: (number: number = 1) => {
         const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
-        const scale = number * value.toFixed(1);
+        const scale = number * Number(value.toFixed(1));
         return scale;
     },
     scaleH: (number: number = 1) => {
         const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
-        const scale = number * value.toFixed(1);
+        const scale = number * Number(value.toFixed(1));
         return scale;
     },
     scaleW: (number: number = 1) => {
         const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
-        const scale = number * value.toFixed(1);
+        const scale = number * Number(value.toFixed(1));
         return scale;
     },
     deviceWidth: () => {
         const { width } = Dimensions.get('screen');
-        return width.toFixed(0);
+        return Number(width.toFixed(0));
     },
     deviceHeight: () => {
         const { height } = Dimensions.get('screen');
-        return height.toFixed(0);
+        return Number(height.toFixed(0));
     },
 };
 
