@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
   dimensionsScale,
@@ -8,31 +8,18 @@ import {
   hasNotch,
   isTablet,
   isSmallDevice,
+  getDeviceInch,
 } from 'react-native-utils-scale';
 
 const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;
 
 const App = () => {
-  useEffect(() => {}, []);
-
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <Text style={styles.fontScale}>Device width: {deviceWidth()}</Text>
         <Text style={styles.fontScale}>Device height: {deviceHeight()}</Text>
-        <View style={styles.box}>
-          <Text style={[styles.color, {fontSize: 14}]}>150x150</Text>
-          <Text style={[styles.color, {fontSize: 14}]}>Default</Text>
-        </View>
-        <View style={[styles.box, styles.scale]}>
-          <Text style={[styles.color, {fontSize: 14 * fontScale()}]}>
-            150x150
-          </Text>
-          <Text style={[styles.color, {fontSize: 14 * fontScale()}]}>
-            Scale: {150 * scale()}x{150 * scale()}
-          </Text>
-        </View>
-
+        <Text style={styles.fontScale}>Device inch: {getDeviceInch()}</Text>
         <Text style={styles.fontScale}>
           isAndroid: {isAndroid().toString()}
         </Text>
@@ -42,6 +29,17 @@ const App = () => {
         <Text style={styles.fontScale}>
           isSmallDevice: {isSmallDevice().toString()}
         </Text>
+
+        <View style={styles.box}>
+          <Text style={[styles.color, {fontSize: 14}]}>150x150</Text>
+          <Text style={[styles.color, {fontSize: 14}]}>Default</Text>
+        </View>
+        <View style={[styles.box, styles.scale]}>
+          <Text style={[styles.color, {fontSize: fontScale(14)}]}>150x150</Text>
+          <Text style={[styles.color, {fontSize: fontScale(14)}]}>
+            Scale: {scale(150)}x{scale(150)}
+          </Text>
+        </View>
       </SafeAreaView>
     </ScrollView>
   );
@@ -54,7 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   fontScale: {
-    fontSize: 16 * fontScale(),
+    fontSize: fontScale(16),
   },
   box: {
     width: 150,
@@ -65,8 +63,8 @@ const styles = StyleSheet.create({
     margin: 16,
   },
   scale: {
-    width: 150 * scale(),
-    height: 150 * scale(),
+    width: scale(150),
+    height: scale(150),
   },
   color: {
     color: 'white',

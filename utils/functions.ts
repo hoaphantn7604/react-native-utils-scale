@@ -9,7 +9,7 @@ const isTablet = () => {
 };
 
 const getDeviceInch = () => {
-    return deviceInch.toFixed(2);
+    return deviceInch.toFixed(1);
 }
 
 const isSmallDevice = () => {
@@ -47,45 +47,33 @@ const isIOS = () => {
 
 
 const dimensionsScale = {
-    fontScale: () => {
-        const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.2 : checkSmallDevice ? 0.7 : 1);
-        const ratioW = width / DESIGN_WIDTH;
-        const ratioH = height / DESIGN_HEIGHT;
-        const value = Math.min(ratioW, ratioH);
-
-        return value;
+    fontScale: (number: number = 1) => {
+        const value = (deviceInch + (checkSmallDevice ? 2 : 3)) / 10;
+        const scale = number * value.toFixed(1);
+        return scale;
     },
-    scale: () => {
-        const { width, height } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
-        const ratioW = width / DESIGN_WIDTH;
-        const ratioH = height / DESIGN_HEIGHT;
-        const value = Math.min(ratioW, ratioH);
-
-        return value;
+    scale: (number: number = 1) => {
+        const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
+        const scale = number * value.toFixed(1);
+        return scale;
     },
-    scaleH: () => {
-        const { height } = Dimensions.get('screen');
-        const DESIGN_HEIGHT = height / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
-        const ratioH = height / DESIGN_HEIGHT;
-        return ratioH;
+    scaleH: (number: number = 1) => {
+        const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
+        const scale = number * value.toFixed(1);
+        return scale;
     },
-    scaleW: () => {
-        const { width } = Dimensions.get('screen');
-        const DESIGN_WIDTH = width / (checkTablet ? 1.3 : checkSmallDevice ? 0.7 : 1);
-        const ratioW = width / DESIGN_WIDTH;
-        return ratioW;
+    scaleW: (number: number = 1) => {
+        const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
+        const scale = number * value.toFixed(1);
+        return scale;
     },
     deviceWidth: () => {
         const { width } = Dimensions.get('screen');
-        return width;
+        return width.toFixed(0);
     },
     deviceHeight: () => {
         const { height } = Dimensions.get('screen');
-        return height;
+        return height.toFixed(0);
     },
 };
 
