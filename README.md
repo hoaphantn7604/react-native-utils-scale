@@ -40,8 +40,8 @@ const App = () => {
           isAndroid: {isAndroid().toString()}
         </Text>
         <Text style={styles.fontScale}>isIOS: {isIOS().toString()}</Text>
-        <Text style={styles.fontScale}>hasNotch: {hasNotch().toString()}</Text>
         <Text style={styles.fontScale}>isTablet: {isTablet().toString()}</Text>
+        <Text style={styles.fontScale}>hasNotch: {hasNotch().toString()}</Text>
         <Text style={styles.fontScale}>
           isSmallDevice: {isSmallDevice().toString()}
         </Text>
@@ -88,5 +88,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
 ```
