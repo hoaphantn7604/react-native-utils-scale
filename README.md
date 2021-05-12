@@ -46,10 +46,6 @@ const App = () => {
           isSmallDevice: {isSmallDevice().toString()}
         </Text>
 
-        <View style={styles.box}>
-          <Text style={[styles.color, {fontSize: 14}]}>150x150</Text>
-          <Text style={[styles.color, {fontSize: 14}]}>Default</Text>
-        </View>
         <View style={[styles.box, styles.scale]}>
           <Text style={[styles.color, {fontSize: fontScale(14)}]}>150x150</Text>
           <Text style={[styles.color, {fontSize: fontScale(14)}]}>
