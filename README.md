@@ -4,15 +4,15 @@
 
 `$ yarn add react-native-utils-scale`
 
-### IOS Setup
+### Start IOS
 
-`$ cd ios && pod install && cd ../`
+`$ cd ios && pod install`
 
 ### Demo
 
 ![Alt text](./document/demo.png?raw=true "Demo")
 
-## Usage
+### Usage
 ```javascript
 
 import React from 'react';
