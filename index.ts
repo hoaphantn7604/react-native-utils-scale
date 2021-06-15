@@ -1,2 +1,27 @@
-import {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice, getDeviceInch} from './utils/functions';
-export {dimensionsScale, isAndroid, isIOS, isIphoneX, hasNotch, isTablet, isSmallDevice, getDeviceInch};
+import { useDetectDevice, useScale } from './toolkit';
+
+const { 
+    deviceInch, 
+    hasNotch, 
+    height, 
+    isAndroid, 
+    isIOS, 
+    isSmallDevice, 
+    isTablet, 
+    width 
+} = useDetectDevice;
+
+const { fontScale, scale } = useScale;
+
+export { 
+    deviceInch, 
+    hasNotch, 
+    height, 
+    isAndroid, 
+    isIOS, 
+    isSmallDevice, 
+    isTablet, 
+    width, 
+    fontScale, 
+    scale
+};

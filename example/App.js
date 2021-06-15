@@ -1,33 +1,33 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
-  dimensionsScale,
-  isAndroid,
-  isIOS,
-  hasNotch,
-  isTablet,
-  isSmallDevice,
-  getDeviceInch,
+  fontScale, 
+  scale,
+  deviceInch, 
+  hasNotch, 
+  isAndroid, 
+  isIOS, 
+  isSmallDevice, 
+  isTablet, 
+  width,
+  height,  
 } from 'react-native-utils-scale';
-
-const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;
 
 const App = () => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.fontScale}>Device width: {deviceWidth()}</Text>
-        <Text style={styles.fontScale}>Device height: {deviceHeight()}</Text>
-        <Text style={styles.fontScale}>Device inch: {getDeviceInch()}</Text>
+        <Text style={styles.fontScale}>Device width: {width}</Text>
+        <Text style={styles.fontScale}>Device height: {height}</Text>
+        <Text style={styles.fontScale}>Device inch: {deviceInch}</Text>
         <Text style={styles.fontScale}>
-          isAndroid: {isAndroid().toString()}
+          isAndroid: {isAndroid.toString()}
         </Text>
-        <Text style={styles.fontScale}>isIOS: {isIOS().toString()}</Text>
-        <Text style={styles.fontScale}>hasNotch: {hasNotch().toString()}</Text>
-        <Text style={styles.fontScale}>isTablet: {isTablet().toString()}</Text>
+        <Text style={styles.fontScale}>isIOS: {isIOS.toString()}</Text>
+        <Text style={styles.fontScale}>isTablet: {isTablet.toString()}</Text>
+        <Text style={styles.fontScale}>hasNotch: {hasNotch.toString()}</Text>
         <Text style={styles.fontScale}>
-          isSmallDevice: {isSmallDevice().toString()}
+          isSmallDevice: {isSmallDevice.toString()}
         </Text>
 
         <View style={[styles.box, styles.scale]}>
