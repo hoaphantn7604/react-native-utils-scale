@@ -1,5 +1,5 @@
 # react-native-utils-scale
-
+Makes the UI more perfect on many screen sizes.
 ## Getting started
 
 ```js 

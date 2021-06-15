@@ -1,8 +1,8 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "2.0.1",
-  "description": "React Native Scale",
+  "version": "2.0.2",
+  "description": "Makes the UI more perfect on many screen sizes.",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
