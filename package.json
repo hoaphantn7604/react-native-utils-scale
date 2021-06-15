@@ -16,7 +16,6 @@
     "react-native",
     "scale",
     "font-scale",
-    "scalable",
     "check-tablet",
     "check-small-device",
     "has-notch",
