@@ -23,6 +23,17 @@ or
     });
 ```
 
+### Documents
+  - scale: make UI flexible on various screen sizes.
+  - fontScale: make font size flexible on various screen sizes.
+  - deviceInch: inch of device.
+  - hasNotch: tells if the device is a has notch.
+  - isAndroid: tells if the device is Android operating system.
+  - isIOS: tells if the device is IOS operating system.
+  - isSmallDevice: tells the device has a screen size smaller than 4.8 inches.
+  - isTablet: tells if the device is a tablet.
+  - width: screen width.
+  - height: screen height. 
 ### Demo
 
 ![Alt text](./document/demo.png?raw=true "Demo")
