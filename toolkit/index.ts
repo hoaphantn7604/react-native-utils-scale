@@ -26,12 +26,12 @@ const hasNotch = () => {
 
 const useScale: UseScale = {
     fontScale: (number: number = 1) => {
-        const value = (deviceInch + (checkSmallDevice ? 2 : 3)) / 10;
+        const value = (deviceInch + (checkSmallDevice || checkTablet ? 2 : 3)) / 10;
         const scale = number * Number(value.toFixed(1));
         return scale;
     },
     scale: (number: number = 1) => {
-        const value = (deviceInch + (checkSmallDevice ? 3 : 4)) / 10;
+        const value = (deviceInch + (checkSmallDevice || checkTablet ? 3 : 4)) / 10;
         const scale = number * Number(value.toFixed(1));
         return scale;
     },

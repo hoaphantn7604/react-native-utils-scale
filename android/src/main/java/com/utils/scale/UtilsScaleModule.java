@@ -39,12 +39,6 @@ public class UtilsScaleModule extends ReactContextBaseJavaModule {
         return constants;
     }
 
-    @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
-    }
-
     public boolean isTablet() {
         // TODO: Implement some actually useful functionality
         if ((reactContext.getResources().getConfiguration().screenLayout &
