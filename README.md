@@ -40,7 +40,7 @@ or
   - height: screen height. 
 ### Demo
 
-![Alt text](./document/demo.png?raw=true "Demo")
+![](https://github.com/hoaphantn7604/file-upload/blob/master/document/scale/demo.png)
 
 ### Usage
 ```javascript
