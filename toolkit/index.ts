@@ -43,7 +43,7 @@ const useDetectDevice: UseDetectDevice = {
     isAndroid: Platform.OS === 'android',
     isIOS: Platform.OS === 'ios',
     hasNotch: hasNotch(),
-    deviceInch: deviceInch.toFixed(1),
+    deviceInch: Number(deviceInch.toFixed(1)),
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
 }
