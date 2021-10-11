@@ -1,7 +1,7 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "2.1.6",
+  "version": "2.1.8",
   "description": "Provide solutions to make your app flexible for different screen sizes, different devices.",
   "main": "index.ts",
   "scripts": {
@@ -15,11 +15,13 @@
   "keywords": [
     "react-native",
     "scale",
-    "font-scale",
-    "check-tablet",
-    "check-small-device",
-    "has-notch",
-    "device-inch"
+    "scaling",
+    "size matter",
+    "size matters",
+    "check tablet",
+    "check small device",
+    "has notch",
+    "device inch"
   ],
   "author": {
     "name": "Hoa Phan",
