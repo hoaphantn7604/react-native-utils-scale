@@ -39,19 +39,19 @@ or
 ### Documents
 | API                | Type                 | Description                                                             | 
 | ------------------ | -------------------- | ----------------------------------------------------------------------- |
-| scale              | Function             | Make UI flexible on various screen sizes.                               |
-| fontScale          | Function             | Make font size flexible on various screen sizes.                        |
+| scale              | Function             | Will return a linear scaled result of the provided size                 |
+| fontScale          | Function             | Will return a linear scaled result of the font size provided            |
 | deviceInch         | Number               | Inch of device                                                          |
-| hasNotch           | Boolean              | Tells if the device is a has notch.                                     |
-| isAndroid          | Boolean              | Tells if the device is Android operating system.                        |
-| isIOS              | Boolean              | Tells if the device is IOS operating system.                            |
-| isSmallDevice      | Boolean              | Tells the device has a screen size smaller than 4.8 inches.             |
-| isTablet           | Boolean              | Tells if the device is a tablet.                                        |
-| width              | Number               | Screen width.                                                           |
-| height             | Number               | Screen height.                                                          |
+| hasNotch           | Boolean              | Tells if the device has a notch                                         |
+| isAndroid          | Boolean              | Tells if the device is Android operating system                         |
+| isIOS              | Boolean              | Tells if the device is IOS operating system                             |
+| isSmallDevice      | Boolean              | Tells the device has a screen size smaller than 4.8 inches              |
+| isTablet           | Boolean              | Tells if the device is a tablet                                         |
+| width              | Number               | Screen width                                                            |
+| height             | Number               | Screen height                                                           |
 
 #### Source code demo
-- [react-native-template-components](https://github.com/hoaphantn7604/react-native-template-components) A beautiful template for React Native.
+[react-native-template-components](https://github.com/hoaphantn7604/react-native-template-components) A beautiful template for React Native.
 
 ### Demo
 
