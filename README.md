@@ -1,7 +1,7 @@
 ## react-native-utils-scale
 Provide solutions to make your app flexible for different screen sizes, different devices.
 When developing with react-native, you need to manually adjust your app to look great on a variety of different screen sizes.
-Provides some simple tooling to make your scaling a whole lot easier.
+This package provides some simple tooling to make your scaling a whole lot easier.
 
 ## Getting started
 
