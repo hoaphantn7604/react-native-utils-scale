@@ -1,4 +1,4 @@
-import { NativeModules, Dimensions, Platform } from 'react-native';
+import { NativeModules, Dimensions, Platform, PixelRatio } from 'react-native';
 import { UseDetectDevice, UseScale } from './type';
 import { devicesWithNotch } from './devicesWithNotch';
 
@@ -7,6 +7,8 @@ const { checkTablet, checkSmallDevice,
     checkhasNotch, getModel, getBrand,
     deviceInch
 } = UtilsScale.getConstants();
+
+const getFontScale = PixelRatio.getFontScale();
 
 const hasNotch = () => {
     if (Platform.OS === 'ios') {
@@ -26,16 +28,16 @@ const hasNotch = () => {
 
 const useScale: UseScale = {
     fontScale: (number: number = 1) => {
-        const value = (deviceInch + (checkSmallDevice || checkTablet ? 2 : 3)) / 10;
-        const scale = number * Number(value.toFixed(1));
-        return scale;
+      const value = (deviceInch + (getFontScale + 1.5)) / 10;
+      const scale = number * Number(value.toFixed(1));
+      return scale;
     },
     scale: (number: number = 1) => {
-        const value = (deviceInch + (checkSmallDevice || checkTablet ? 3 : 4)) / 10;
-        const scale = number * Number(value.toFixed(1));
-        return scale;
+      const value = (deviceInch + (getFontScale + 2)) / 10;
+      const scale = number * Number(value.toFixed(1));
+      return scale;
     },
-};
+  };
 
 const useDetectDevice: UseDetectDevice = {
     isTablet: checkTablet,
