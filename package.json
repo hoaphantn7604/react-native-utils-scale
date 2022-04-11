@@ -1,7 +1,7 @@
 {
   "name": "react-native-utils-scale",
   "title": "React Native Utils Scale",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Provide solutions to make your app flexible for different screen sizes, different devices.",
   "main": "index.ts",
   "scripts": {
