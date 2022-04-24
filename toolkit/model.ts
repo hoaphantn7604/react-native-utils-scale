@@ -1,9 +1,9 @@
-export interface UseScale {
+export interface IUseScale {
     fontScale: (number: number) => number;
     scale:  (number: number) => number;
 }
 
-export interface UseDetectDevice {
+export interface IUseDetectDevice {
     isTablet: boolean;
     isSmallDevice: boolean;
     isAndroid: boolean;

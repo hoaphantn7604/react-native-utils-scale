@@ -1,18 +1,32 @@
 import { NativeModules, Dimensions, Platform, PixelRatio } from 'react-native';
-import { UseDetectDevice, UseScale } from './type';
+import { IUseDetectDevice, IUseScale } from './model';
 import { devicesWithNotch } from './devicesWithNotch';
+const { width, height } = Dimensions.get('window');
 
 const { UtilsScale } = NativeModules;
-const { checkTablet, checkSmallDevice,
+const { checkSmallDevice,
     checkhasNotch, getModel, getBrand,
     deviceInch
 } = UtilsScale.getConstants();
 
 const getFontScale = PixelRatio.getFontScale();
 
+const isTablet = () => {
+    let pixelDensity = PixelRatio.get();
+    const adjustedWidth = width * pixelDensity;
+    const adjustedHeight = height * pixelDensity;
+    if (pixelDensity < 2 && (adjustedWidth >= 1000 || adjustedHeight >= 1000)) {
+      return true;
+    } else {
+      return (
+        pixelDensity === 2 && (adjustedWidth >= 1920 || adjustedHeight >= 1920)
+      );
+    }
+  };
+
 const hasNotch = () => {
     if (Platform.OS === 'ios') {
-        if (checkTablet) {
+        if (isTablet()) {
             return false;
         } else {
             return checkhasNotch;
@@ -26,7 +40,7 @@ const hasNotch = () => {
     }
 }
 
-const useScale: UseScale = {
+const useScale: IUseScale = {
     fontScale: (number: number = 1) => {
       const value = (deviceInch + (getFontScale + 1.5)) / 10;
       const scale = number * Number(value.toFixed(1));
@@ -39,8 +53,8 @@ const useScale: UseScale = {
     },
   };
 
-const useDetectDevice: UseDetectDevice = {
-    isTablet: checkTablet,
+const useDetectDevice: IUseDetectDevice = {
+    isTablet: isTablet(),
     isSmallDevice: checkSmallDevice,
     isAndroid: Platform.OS === 'android',
     isIOS: Platform.OS === 'ios',
