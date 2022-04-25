@@ -9,10 +9,9 @@ const { checkSmallDevice,
   deviceInch
 } = UtilsScale.getConstants();
 
-const getScale = PixelRatio.get();
+const pixelDensity = PixelRatio.get();
 
 const isTablet = () => {
-  let pixelDensity = PixelRatio.get();
   const adjustedWidth = width * pixelDensity;
   const adjustedHeight = height * pixelDensity;
   if (pixelDensity < 2 && (adjustedWidth >= 1000 || adjustedHeight >= 1000)) {
@@ -42,12 +41,12 @@ const hasNotch = () => {
 
 const useScale: IUseScale = {
   fontScale: (number: number = 1) => {
-    const value = (deviceInch + getScale) / 10;
+    const value = (deviceInch + pixelDensity) / 10;
     const scale = number * Number(value.toFixed(1));
     return scale;
   },
   scale: (number: number = 1) => {
-    const value = (deviceInch + (getScale + 0.5)) / 10;
+    const value = (deviceInch + (pixelDensity + 0.5)) / 10;
     const scale = number * Number(value.toFixed(1));
     return scale;
   },
