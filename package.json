@@ -1,6 +1,6 @@
 {
   "name": "react-native-utils-scale",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Provide solutions to make your app flexible for different screen sizes, different devices.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
