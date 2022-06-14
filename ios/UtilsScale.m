@@ -6,7 +6,7 @@ RCT_EXPORT_MODULE()
 
 - (NSDictionary *)constantsToExport
 {
-    return @{ 
+    return @{
         @"checkTablet": @([self isTablet]),
         @"checkSmallDevice": @([self isSmallDevice]),
         @"deviceInch": @([self deviceInch]),
@@ -28,7 +28,7 @@ RCT_EXPORT_MODULE()
     }else{
         return NO;
     }
-    
+
 }
 
 - (BOOL) isSmallDevice
@@ -45,7 +45,7 @@ RCT_EXPORT_MODULE()
 - (float) deviceInch
 {
     float scale = [[UIScreen mainScreen] scale];
-    
+
     NSInteger width = [[UIScreen mainScreen] bounds].size.width;
     NSInteger height = [[UIScreen mainScreen] bounds].size.height;
 
@@ -95,7 +95,7 @@ RCT_EXPORT_MODULE()
         }else {
             return NO;
         }
-       
+
     }else{
         if (@available(iOS 11.0, *)) {
             if([[[UIApplication sharedApplication] delegate] window].safeAreaInsets.top > 20.0){
@@ -107,7 +107,7 @@ RCT_EXPORT_MODULE()
             // Fallback on earlier versions
             return NO;
         }
-       
+
     }
 }
 
