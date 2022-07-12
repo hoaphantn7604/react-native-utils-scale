@@ -1,48 +1,95 @@
-# react-native-utils-scale
+## react-native-utils-scale
+Provide solutions to make your app flexible for different screen sizes, different devices.
+When developing with react-native, you need to manually adjust your app to look great on a variety of different screen sizes.
+This package provides some simple tooling to make your scaling a whole lot easier.
 
 ## Getting started
 
-`$ yarn add react-native-utils-scale`
+```js
+  yarn add react-native-utils-scale
+```
+or
 
-### IOS Setup
+```js
+  npm i react-native-utils-scale
+```
+### RN Version < 0.60
+```js
+    react-native link react-native-utils-scale
+```
+### Run IOS
+```js
+    cd ios && pod install
+    react-native run-ios
+```
 
-`$ cd ios && pod install && cd ../`
+### Run Android
+```js
+    react-native run-android
+```
+
+### Jest setup
+```js
+    jest.mock('react-native-utils-scale', () => {
+        const UtilsScale = require('react-native-utils-scale/mock');
+        return UtilsScale;
+    });
+```
+
+### Documents
+| API                | Type                 | Description                                                             |
+| ------------------ | -------------------- | ----------------------------------------------------------------------- |
+| scale              | Function             | Will return a linear scaled result of the provided size                 |
+| fontScale          | Function             | Will return a linear scaled result of the font size provided            |
+| deviceInch         | Number               | Inch of device                                                          |
+| hasNotch           | Boolean              | Tells if the device has a notch                                         |
+| isAndroid          | Boolean              | Tells if the device is Android operating system                         |
+| isIOS              | Boolean              | Tells if the device is IOS operating system                             |
+| isSmallDevice      | Boolean              | Tells the device has a screen size smaller than 4.8 inches              |
+| isTablet           | Boolean              | Tells if the device is a tablet                                         |
+| width              | Number               | Screen width                                                            |
+| height             | Number               | Screen height                                                           |
+
+#### Source code demo
+[react-native-template-components](https://github.com/hoaphantn7604/react-native-template-components) A beautiful template for React Native.
 
 ### Demo
+
 ![](https://github.com/hoaphantn7604/file-upload/blob/master/document/scale/demo.png)
 
-## Usage
+### Usage
 ```javascript
 
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
-  dimensionsScale,
+  fontScale,
+  scale,
+  deviceInch,
+  hasNotch,
   isAndroid,
   isIOS,
-  hasNotch,
-  isTablet,
   isSmallDevice,
-  getDeviceInch,
+  isTablet,
+  width,
+  height,
 } from 'react-native-utils-scale';
-
-const {scale, fontScale, deviceWidth, deviceHeight} = dimensionsScale;
 
 const App = () => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.fontScale}>Device width: {deviceWidth()}</Text>
-        <Text style={styles.fontScale}>Device height: {deviceHeight()}</Text>
-        <Text style={styles.fontScale}>Device inch: {getDeviceInch()}</Text>
+        <Text style={styles.fontScale}>Device width: {width}</Text>
+        <Text style={styles.fontScale}>Device height: {height}</Text>
+        <Text style={styles.fontScale}>Device inch: {deviceInch}</Text>
         <Text style={styles.fontScale}>
-          isAndroid: {isAndroid().toString()}
+          isAndroid: {isAndroid.toString()}
         </Text>
-        <Text style={styles.fontScale}>isIOS: {isIOS().toString()}</Text>
-        <Text style={styles.fontScale}>isTablet: {isTablet().toString()}</Text>
-        <Text style={styles.fontScale}>hasNotch: {hasNotch().toString()}</Text>
+        <Text style={styles.fontScale}>isIOS: {isIOS.toString()}</Text>
+        <Text style={styles.fontScale}>isTablet: {isTablet.toString()}</Text>
+        <Text style={styles.fontScale}>hasNotch: {hasNotch.toString()}</Text>
         <Text style={styles.fontScale}>
-          isSmallDevice: {isSmallDevice().toString()}
+          isSmallDevice: {isSmallDevice.toString()}
         </Text>
 
         <View style={[styles.box, styles.scale]}>
